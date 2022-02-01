@@ -1,0 +1,58 @@
+{% extends 'listings/base.html' %}
+{% load static %} 
+{% block content %}
+
+
+<!-- <h1>Groupes</h1> -->
+<link rel="stylesheet" href="{% static 'css/list-page.css' %}"/>
+
+<section class="page-section portfolio" id="portfolio">
+
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <div class="text-center">
+            <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Groupes</h2>
+        </div>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+    </div>
+</section>
+
+<div>
+    <button><a href="{% url 'band-create' %}" class="write-new-button">Créer un nouveau groupe</a></button>
+    </p>
+    <div class="groups">
+        {% for band in bands %}
+            <div class="group">
+                <h3 class="u-custom-font u-font-pt-sans u-text u-text-grey-50 u-text-3"><a href="{% url 'band-detail' band.id %}">{{band.name}}</a></h3>
+                <img class="img-group" src="{% band.image.url %}" alt="image du groupe de musique">
+                <a href="{% url 'band-detail' band.id %}">Détails</a> - <a href="{% url 'band-change' band.id %}">Editer</a>           
+            </div>
+        {%endfor%}
+    </div>
+    </div>
+    <button><a href="{% url 'band-create' %}" class="write-new-button">Créer un nouveau groupe</a></button>
+               
+    
+
+
+
+
+<!-- <a href="{% url 'band-create' %}">Créer un nouveau groupe</a>
+<p>Mes groupes préférés sont : 
+</p>
+<ul>
+    {%for band in bands%}
+    <li class="groupe-icon"><a href="{% url 'band-detail' band.id %}">{{band.name}}</a>
+        - <a href="{% url 'band-change' band.id %}">[Editer]</a></li>
+    
+    {%endfor%}
+</ul> -->
+
+{% endblock %}
+
+

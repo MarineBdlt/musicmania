@@ -1,0 +1,43 @@
+
+.group, .listing {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em;
+    margin-right: 2.5em;
+}
+.groups, .listings {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.img-group, .img-listing {
+    max-width: 13em;
+    height: auto;
+}
+
+.img-listing {
+    max-width: 18em;
+    height: auto;
+
+}
+
+#listing-title {
+    font-size: 1em; 
+    max-width: 17em; 
+}
+
+button {
+    margin-bottom: 2em;
+    margin-left: 2em;
+    background-color: #A13941;
+    border-radius: 30px;
+    height: 3em;
+}
+
+.write-new-button {
+    color: #fff;
+    margin: 0.5em;
+}
+

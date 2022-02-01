@@ -1,0 +1,28 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h2>{{ listing.title }}</h2>
+
+<ul>
+ <li>Type : {{ listing.get_type_display }}</li>
+ <li>Année de parution : {{ listing.year }}</li>
+ {% if listing.band %}
+    <li>Groupe : <a href="{% url 'band-detail' listing.band.id %}">{{ listing.band }}</a></li>
+ {% endif %}
+ <li>Vendu : {{ listing.sold|yesno }}</li>
+</ul>
+
+<p>{{ listing.description }}</p>
+
+<a href="{% url 'listing-change' listing.id %}">Modifier</a>
+<a href="{% url 'listing-delete' listing.id %}">Supprimer</a>
+
+<a href="{% url 'listing-list' %}">Retour à tous la liste des annonces</a>
+
+{% endblock %}
+
+<!-- title = models.fields.CharField(max_length=100)
+    description = models.fields.CharField(max_length=2000)
+    year = models.fields.DateField(null=True)
+    sold = models.fields.BooleanField(default=True) -->

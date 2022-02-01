@@ -1,0 +1,61 @@
+{% extends 'listings/base.html' %}
+{% load static %} 
+{% block content %}
+<!-- <h1>Annonces quotidiennes</h1> -->
+<link rel="stylesheet" href="{% static 'css/list-page.css' %}"/>
+
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+        <!-- Portfolio Section Heading-->
+        <div class="text-center">
+            <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Annonces</h2>
+        </div>
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+    </div>
+</section>
+<button><a href="{% url 'listing-create' %}" class="write-new-button">Nouvelle annonce</a></button>
+    <div class="listings"> 
+        {%for listing in listings%}
+        <div class="listing">
+            <h3 id="listing-title" class="u-custom-font u-font-pt-sans u-text u-text-grey-50 u-text-3"><a href="{% url 'listing-detail' listing.id %}">{{listing.title}}</a></h3>
+            <img class="img-listing" src="{% static listing.image %}" alt="image de l'objet">
+            <div>{{listing.image}}</div>
+            <span><a href="{% url 'listing-detail' listing.id %}">Détails</a> - <a href="{% url 'listing-change' listing.id %}">Editer</a></span> 
+        </div>    
+        {%endfor%}
+    </div>
+<button class="button"><a href="{% url 'listing-create' %}" class="write-new-button">Nouvelle annonce</a></button>
+{% endblock %}
+<!-- 
+    <div>
+    <a href="{% url 'band-create' %}">Créer un nouveau groupe</a>
+    </p>
+    <div class="groups">
+        {%for band in bands%}
+            <div class="group">
+                <h3 class="u-custom-font u-font-pt-sans u-text u-text-grey-50 u-text-3"><a href="{% url 'band-detail' band.id %}">{{band.name}}</a></h3>
+                <img class="img-group" src="{% static band.image %}" alt="image du groupe de musique">
+                <div>{{band.image}}</div>
+                <span><a href="{% url 'band-detail' band.id %}">Détails</a> - <a href="{% url 'band-change' band.id %}">Editer</a></span>           
+            </div>
+        {%endfor%}
+    </div>
+    </div>
+    <a href="{% url 'band-create' %}">Créer un nouveau groupe</a>
+
+<div>
+    <a href="{% url 'band-create' %}">Créer un nouveau groupe</a>
+    </p>
+    <div class="groups">
+        {%for band in bands%}
+<div class="group">
+    <h3 class="u-custom-font u-font-pt-sans u-text u-text-grey-50 u-text-3"><a href="{% url 'band-detail' band.id %}">{{band.name}}</a></h3>
+    <img class="img-group" src="{% static band.image %}" alt="image du groupe de musique">
+    <span><a href="{% url 'band-detail' band.id %}">Détails</a> - <a href="{% url 'band-change' band.id %}">Editer</a></span>           
+</div>
+{%endfor%} -->
